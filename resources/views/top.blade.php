@@ -7,7 +7,8 @@
     <title>Laravel</title>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -15,7 +16,7 @@
 
     <style>
         body {
-            font-family: 'Nunito';
+            font-family: 'Londrina Solid', cursive;
             padding-top: 40px;
             padding-bottom: 40px;
         }
@@ -31,19 +32,12 @@
 <body class="text-center">
 <main class="top-logo">
     <form>
-        <img class="mb-4" src="/docs/5.0/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
-        <h1 class="h3 mb-3 fw-normal">サインインする</h1>
-        <label for="inputEmail" class="visually-hidden">メールアドレス</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="メールアドレス" required autofocus>
-        <label for="inputPassword" class="visually-hidden">パスワード</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="パスワード" required>
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" value="remember-me"> 記憶する
-            </label>
+        <h1 class="mb-3 fw-normal">TaskTune</h1>
+        <img class="mb-4" src="{{ asset('img/logo@2x.png') }}" alt="" width="256" height="256">
+        <div>
+            <a href="{{ route('login') }}">Login</a>
         </div>
-        <button class="w-100 btn btn-lg btn-primary" type="submit">サインイン</button>
-        <p class="mt-5 mb-3 text-muted">&copy; 2017-2021</p>
+        <p class="mt-5 mb-3 text-muted">&copy; 2021 Supi.</p>
     </form>
 </main>
 

@@ -2,6 +2,4 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    echo 'tuner';
-});
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
