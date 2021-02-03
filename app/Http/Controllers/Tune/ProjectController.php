@@ -8,15 +8,18 @@ use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $projects = Project::enabled()->get();
+        return view('tunes.project.index', compact('projects'));
     }
+
+    public function summary($key)
+    {
+        $project = Project::key($key)->first();
+        return view('tunes.project.summary', compact('project'));
+    }
+
 
     /**
      * Show the form for creating a new resource.

@@ -32,3 +32,44 @@ table th {
 table td {
     border: solid 1px #ddd;
 }
+
+/**
+    #dashboard-content
+ */
+#dashboard-content .card-header {
+    font-weight: 600;
+    background: #E6F1F6;
+}
+
+/**
+    #projects-content
+ */
+#projects-content ul.project-list {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+#projects-content ul.project-list li {
+    list-style-type: none;
+    margin-bottom: 0.5rem;
+}
+
+#projects-content .project-link {
+    text-decoration: none;
+    color: #4183C4;
+    font-weight: 600;
+}
+
+#projects-content .project-link:hover {
+    text-decoration: underline;
+}
+
+/**
+    #project
+ */
+h1#project-name {
+    margin-top: 1rem;
+    margin-bottom:1rem;
+    padding-left:2rem;
+    font-size:1.6rem;
+}

@@ -16,6 +16,15 @@ class ProjectSeeder extends Seeder
         \DB::table('projects')->insert([
             [
                 'name' => 'EGG SE',
+                'key' => 'eggse',
+                'enabled' => true
+
+            ],
+            [
+                'name' => 'Sample Project',
+                'key' => 'smplpr',
+                'enabled' => true
             ]
-        ]);    }
+        ]);
+    }
 }
