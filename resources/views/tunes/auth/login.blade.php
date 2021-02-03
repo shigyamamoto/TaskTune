@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ログイン | Laravelチュートリアル</title>
+    <title>Login|TaskTune</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" crossorigin="anonymous">
 </head>
 <body>
@@ -17,7 +17,7 @@
                         {{ Form::open(['route' => 'login']) }}
                         <div class="form-group">
                             {{ Form::label('name', 'ユーザー名') }}
-                            {{ Form::text('name', null, [
+                            {{ Form::text('name', 'shigeki.yamamoto', [ // null
                                 'class' => 'form-control' . ($errors->has('name') ? ' is-invalid' : '')
                             ]) }}
                             @error('name')

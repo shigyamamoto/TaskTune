@@ -1,0 +1,34 @@
+.bd-navbar {
+    background-color: #33A6B8;
+}
+
+.navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+#header-logo {
+    width: 1rem;
+    height: 1rem;
+}
+
+header {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+table {
+    border: 1px solid #e4e4e4;
+    border-collapse: collapse;
+    font-size: 12px;
+    width: 100%;
+}
+
+table th {
+    border: solid 1px #ddd;
+    background-color: #EEEEEE;
+}
+
+table td {
+    border: solid 1px #ddd;
+}
