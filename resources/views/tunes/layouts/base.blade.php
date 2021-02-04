@@ -50,7 +50,7 @@
                     <a class="nav-link p-2" href="{{ route('tune.dashboard') }}">ダッシュボード</a>
                 </li>
                 <li class="nav-item col-6 col-md-auto">
-                    <a class="nav-link p-2" href="{{ route('tune.projects') }}">プロジェクト</a>
+                    <a class="nav-link p-2" href="{{ route('tune.project') }}">プロジェクト</a>
                 </li>
                 <li class="nav-item col-6 col-md-auto">
                     <a class="nav-link p-2">管理</a>
@@ -84,5 +84,7 @@
     <hr>
     @yield('content')
 </div>
+{{ Form::open(['route' => 'logout', 'name' => 'logout']) }}
+{{ Form::close() }}
 </body>
 </html>

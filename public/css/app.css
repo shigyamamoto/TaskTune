@@ -68,8 +68,78 @@ table td {
     #project
  */
 h1#project-name {
-    margin-top: 1rem;
-    margin-bottom:1rem;
-    padding-left:2rem;
-    font-size:1.6rem;
+    margin-top: 0.6rem;
+    margin-bottom: 0.8rem;
+    padding-left: 2rem;
+    font-size: 1.6rem;
 }
+
+#main-menu {
+    width: 100%;
+    border-bottom: 1px solid #EAEAEA;
+    border-bottom-color: #CACACA;
+    border-radius: 3px;
+    margin-bottom: 0.5rem;
+}
+
+#main-menu .main-menu-cell {
+    text-align: center;
+}
+
+#main-menu .main-menu-cell a {
+    padding: 0.4rem 0.75rem;
+    text-decoration: none;
+    display: block;
+    color: #b2afaa;
+    font-size: 0.7rem;
+    font-weight: 600;
+}
+
+#main-menu .main-menu-cell.active a {
+    color: #383838;
+}
+
+#main-menu .main-menu-cell a > span {
+    display: block;
+}
+
+#main-menu .main-menu-cell a > i {
+    font-size: 1.2rem;
+}
+
+#main-menu .main-menu-cell a:hover {
+    color: #888;
+    text-decoration: none;
+}
+
+/**
+    #versions-content
+ */
+#versions-content .card-header {
+    font-weight: 600;
+    background: #E5ECDE;
+}
+
+#versions-content .card-header .create {
+    font-size:0.8rem;
+    font-weight:400;
+    line-height:1.5rem;
+}
+
+#versions-content .sprint {
+    margin-bottom: 0.75rem;
+}
+#versions-content .sprint-title {
+    font-weight:600;
+}
+#versions-content .sprint-date {
+    font-size:0.8rem;
+}
+
+#versions-content label.form-label {
+    font-size:0.8rem;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+}
+

@@ -285,6 +285,4 @@ $title = 'ダッシュボード';
             </div>
         </div>
     </div>
-    {{ Form::open(['route' => 'logout', 'name' => 'logout']) }}
-    {{ Form::close() }}
 @endsection

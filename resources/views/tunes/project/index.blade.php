@@ -21,7 +21,7 @@ $title = 'プロジェクト';
                                         <li>
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <i class="fas fa-cubes"></i> {!! link_to_route('tune.projects.summary', $project->name, ['key' => $project->key], $attributes = array('class' => 'project-link')) !!}
+                                                    <i class="fas fa-cubes"></i> {!! link_to_route('tune.project.summary', $project->name, ['key' => $project->key], $attributes = array('class' => 'project-link')) !!}
                                                 </div>
                                             </div>
                                         </li>
@@ -36,7 +36,8 @@ $title = 'プロジェクト';
                 <div class="card">
                     <div class="card-body">
                         <h3>プロジェクト</h3>
-                        <label for="closed"><input type="checkbox" name="closed" id="closed" value="1"> 終了したプロジェクトを表示</label>
+                        <label for="closed"><input type="checkbox" name="closed" id="closed" value="1">
+                            終了したプロジェクトを表示</label>
                         <p><input type="submit" value="適用" class="button-small"></p>
                     </div>
                 </div>

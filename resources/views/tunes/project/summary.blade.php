@@ -1,5 +1,5 @@
 <?php
-$title = '概要-';
+$title = '概要';
 ?>
 @extends('tunes.layouts.project')
 
@@ -22,7 +22,8 @@ $title = '概要-';
                 <div class="card">
                     <div class="card-body">
                         <h3>プロジェクト</h3>
-                        <label for="closed"><input type="checkbox" name="closed" id="closed" value="1"> 終了したプロジェクトを表示</label>
+                        <label for="closed"><input type="checkbox" name="closed" id="closed" value="1">
+                            終了したプロジェクトを表示</label>
                         <p><input type="submit" value="適用" class="button-small"></p>
                     </div>
                 </div>

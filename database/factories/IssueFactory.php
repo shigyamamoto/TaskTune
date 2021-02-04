@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Task;
+use App\Models\Issue;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class TaskFactory extends Factory
+class IssueFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Task::class;
+    protected $model = Issue::class;
 
     /**
      * Define the model's default state.

@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ isset($title) ? $title . ' | ' : '' }}|TaskTune</title>
+    <title>{{ isset($title) ? $title . ' | ' : '' }}{{ isset($project->name) ? $project->name . ' | ' : '' }}
+        TaskTune</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -11,8 +12,7 @@
           rel="stylesheet">
 
     <!-- Styles -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('lib/bootstrap-5.0.0-beta1-dist/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('lib/fontawesome-free-5.15.2-web/css/fontawesome.min.css') }}">
     <link rel="stylesheet" href="{{ asset('lib/fontawesome-free-5.15.2-web/css/brands.min.css') }}">
     <link rel="stylesheet" href="{{ asset('lib/fontawesome-free-5.15.2-web/css/solid.css') }}">
@@ -50,7 +50,7 @@
                     <a class="nav-link p-2" href="{{ route('tune.dashboard') }}">ダッシュボード</a>
                 </li>
                 <li class="nav-item col-6 col-md-auto">
-                    <a class="nav-link p-2" href="{{ route('tune.projects') }}">プロジェクト</a>
+                    <a class="nav-link p-2" href="{{ route('tune.project') }}">プロジェクト</a>
                 </li>
                 <li class="nav-item col-6 col-md-auto">
                     <a class="nav-link p-2">管理</a>
@@ -75,7 +75,6 @@
                         ログアウト
                     </a>
                 </li>
-
             </ul>
         </div>
     </nav>
@@ -84,8 +83,49 @@
     <h1 id="project-name">
         <i class="fas fa-cubes"></i> {{ $project->name }}
     </h1>
-    <hr>
+    <div id="main-menu">
+        <div class="d-flex justify-content-start">
+            <div class="main-menu-cell{{ isset($title) && $title == '概要' ? ' active' : '' }}">
+                <a href="{{ route('tune.project.summary', ['key' => $project->key ]) }}">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Summary</span>
+                </a>
+            </div>
+            <div class="main-menu-cell{{ isset($title) && $title == 'アクティビティ' ? ' active' : '' }}">
+                <a href="{{ route('tune.project.activity', ['key' => $project->key ]) }}">
+                    <i class="fas fa-at"></i>
+                    <span>Activity</span>
+                </a>
+            </div>
+            <div class="main-menu-cell{{ isset($title) && $title == 'バージョン' ? ' active' : '' }}">
+                <a href="{{ route('tune.project.version', ['key' => $project->key ]) }}">
+                    <i class="fas fa-thumbtack"></i>
+                    <span>Version</span>
+                </a>
+            </div>
+            <div class="main-menu-cell{{ isset($title) && $title == 'バックログ' ? ' active' : '' }}">
+                <a href="{{ route('tune.project.backlog', ['key' => $project->key ]) }}">
+                    <i class="fas fa-tasks"></i>
+                    <span>Backlog</span>
+                </a>
+            </div>
+            <div class="main-menu-cell{{ isset($title) && $title == 'かんばん' ? ' active' : '' }}">
+                <a href="{{ route('tune.project.kanban', ['key' => $project->key ]) }}">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Kanban</span>
+                </a>
+            </div>
+            <div class="main-menu-cell{{ isset($title) && $title == 'チケット' ? ' active' : '' }}">
+                <a href="{{ route('tune.project.issue', ['key' => $project->key ]) }}">
+                    <i class="fas fa-ticket-alt"></i>
+                    <span>Ticket</span>
+                </a>
+            </div>
+        </div>
+    </div>
     @yield('content')
 </div>
+{{ Form::open(['route' => 'logout', 'name' => 'logout']) }}
+{{ Form::close() }}
 </body>
 </html>

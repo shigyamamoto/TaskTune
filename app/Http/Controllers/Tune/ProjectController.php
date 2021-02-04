@@ -4,22 +4,88 @@ namespace App\Http\Controllers\Tune;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\Version;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
 {
+    public function __construct() {
+        $this->middleware('project')
+            ->except(['index']);
+    }
+
     public function index()
     {
         $projects = Project::enabled()->get();
         return view('tunes.project.index', compact('projects'));
     }
 
-    public function summary($key)
+    public function summary(Request $request)
     {
-        $project = Project::key($key)->first();
-        return view('tunes.project.summary', compact('project'));
+        $value = [
+            'project' => $request->project
+        ];
+        return view('tunes.project.summary', $value);
     }
 
+    public function activity(Request $request)
+    {
+        $value = [
+            'project' => $request->project
+        ];
+        return view('tunes.project.activity', $value);
+    }
+
+    public function version(Request $request)
+    {
+        $sprints = Version::sprint($request->project->key);
+        $value = [
+            'project' => $request->project,
+            'sprints' => $sprints
+        ];
+        return view('tunes.project.version.index', $value);
+    }
+
+    public function version_create(Request $request)
+    {
+        $value = [
+            'project' => $request->project
+        ];
+        return view('tunes.project.version.create', $value);
+    }
+
+    public function version_store(Request $request)
+    {
+        $value = [
+            'project' => $request->project
+        ];
+        return redirect()->route('tune.project.version', $project->key);
+    }
+
+
+    public function backlog(Request $request)
+    {
+        $value = [
+            'project' => $request->project
+        ];
+        return view('tunes.project.backlog', $value);
+    }
+
+    public function kanban(Request $request)
+    {
+        $value = [
+            'project' => $request->project
+        ];
+        return view('tunes.project.kanban', $value);
+    }
+
+    public function issue(Request $request)
+    {
+        $value = [
+            'project' => $request->project
+        ];
+        return view('tunes.project.issue', $value);
+    }
 
     /**
      * Show the form for creating a new resource.
