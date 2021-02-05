@@ -25,67 +25,10 @@ class ProjectController extends Controller
         $value = [
             'project' => $request->project
         ];
-        return view('tunes.project.summary', $value);
-    }
-
-    public function activity(Request $request)
-    {
-        $value = [
-            'project' => $request->project
-        ];
-        return view('tunes.project.activity', $value);
-    }
-
-    public function version(Request $request)
-    {
-        $sprints = Version::sprint($request->project->key);
-        $value = [
-            'project' => $request->project,
-            'sprints' => $sprints
-        ];
-        return view('tunes.project.version.index', $value);
-    }
-
-    public function version_create(Request $request)
-    {
-        $value = [
-            'project' => $request->project
-        ];
-        return view('tunes.project.version.create', $value);
-    }
-
-    public function version_store(Request $request)
-    {
-        $value = [
-            'project' => $request->project
-        ];
-        return redirect()->route('tune.project.version', $project->key);
+        return view('tunes.project.summary.index', $value);
     }
 
 
-    public function backlog(Request $request)
-    {
-        $value = [
-            'project' => $request->project
-        ];
-        return view('tunes.project.backlog', $value);
-    }
-
-    public function kanban(Request $request)
-    {
-        $value = [
-            'project' => $request->project
-        ];
-        return view('tunes.project.kanban', $value);
-    }
-
-    public function issue(Request $request)
-    {
-        $value = [
-            'project' => $request->project
-        ];
-        return view('tunes.project.issue', $value);
-    }
 
     /**
      * Show the form for creating a new resource.

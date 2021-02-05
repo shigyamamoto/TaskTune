@@ -19,25 +19,6 @@
 </div>
 
 <div class="mb-1 form-group row">
-    {{ Form::label('description', 'Desctiprion', ['class' => 'col-sm-2 form-label']) }}
-    <div class="col-sm-10">
-        {{ Form::text('description',
-            isset($version->name)
-            ? $version->name
-            : '',
-        [
-            'class' => 'form-control' . ($errors->has('description') ? ' is-invalid' : ''),
-            'placeholder' => '説明文',
-        ]) }}
-        @error('description')
-        <div class="invalid-feedback">
-            {{ $message }}
-        </div>
-        @enderror
-    </div>
-</div>
-
-<div class="mb-1 form-group row">
     {{ Form::label('status', 'Status', ['class' => 'col-sm-2 form-label']) }}
     <div class="col-sm-10">
         {!! Form::select('status',
@@ -45,7 +26,7 @@
             0,
             [
                 'class' => 'form-select form-select-sm' . ($errors->has('status') ? ' is-invalid' : ''),
-                'disabled' => 'true'
+                'readonly' => 'true'
             ])
         !!}
         @error('status')

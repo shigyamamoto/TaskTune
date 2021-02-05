@@ -3,84 +3,59 @@
 namespace App\Http\Controllers\Tune;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\VersionRequest;
 use App\Models\Version;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Log;
 
 class VersionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+    public function __construct() {
+        $this->middleware('project')
+            ->except([]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function index(Request $request)
     {
-        //
+        $sprints = Version::sprint($request->project->key);
+        $value = [
+            'project' => $request->project,
+            'sprints' => $sprints
+        ];
+        return view('tunes.project.version.index', $value);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function create(Request $request)
     {
-        //
+        $value = [
+            'project' => $request->project
+        ];
+        return view('tunes.project.version.create', $value);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Version  $version
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Version $version)
+    public function store(VersionRequest $request, $key)
     {
-        //
-    }
+        $data = [
+            'name' => $request->name,
+            'status' => $request->status,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+            'project_id' => $request->project->id
+        ];
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Version  $version
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Version $version)
-    {
-        //
-    }
+        $version = DB::table('versions')->insert($data);
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Version  $version
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Version $version)
-    {
-        //
-    }
+        if ($version) {
+            return redirect()
+                ->route('tune.project.version', $request->project->key)
+                ->withSuccess('データを登録しました。');
+        } else {
+            return redirect()
+                ->route('tune.project.version.create', $request->project->key)
+                ->withError('データの登録に失敗しました。');
+        }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Version  $version
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Version $version)
-    {
-        //
+
     }
 }

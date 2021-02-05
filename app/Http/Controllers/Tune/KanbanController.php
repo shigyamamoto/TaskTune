@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Tune;
 
 use App\Http\Controllers\Controller;
-use App\Models\Issue;
 use Illuminate\Http\Request;
 
-class IssueController extends Controller
+class KanbanController extends Controller
 {
     public function __construct() {
         $this->middleware('project')
@@ -18,8 +17,6 @@ class IssueController extends Controller
         $value = [
             'project' => $request->project
         ];
-        return view('tunes.project.issue.index', $value);
+        return view('tunes.project.kanban.index', $value);
     }
-
-
 }

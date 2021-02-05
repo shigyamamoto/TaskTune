@@ -4,7 +4,7 @@ $title = '概要';
 @extends('tunes.layouts.project')
 
 @section('content')
-    <div id="projects-content" class="container-fluid">
+    <div id="summary-content" class="container-fluid">
         <div class="row">
             <div class="col-sm-9">
                 <div id="dashboard-content" class="card">

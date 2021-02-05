@@ -1,10 +1,10 @@
 <?php
-$title = 'かんばん';
+$title = 'バックログ';
 ?>
 @extends('tunes.layouts.project')
 
 @section('content')
-    <div id="projects-content" class="container-fluid">
+    <div id="backlog-content" class="container-fluid">
         <div class="row">
             <div class="col-sm">
                 <div id="dashboard-content" class="card">

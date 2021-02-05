@@ -113,11 +113,28 @@ h1#project-name {
 }
 
 /**
+    #summary-content
+ */
+#summary-content .card-header {
+    font-weight: 600;
+    background: #E7F5F7;
+}
+
+/**
+    #activity-content
+ */
+#activity-content .card-header {
+    font-weight: 600;
+    background: #E7F5F7;
+}
+
+
+/**
     #versions-content
  */
 #versions-content .card-header {
     font-weight: 600;
-    background: #E5ECDE;
+    background: #E7F5F7;
 }
 
 #versions-content .card-header .create {
@@ -143,3 +160,26 @@ h1#project-name {
     align-items: center;
 }
 
+/**
+    #backlog-content
+ */
+#backlog-content .card-header {
+    font-weight: 600;
+    background: #E7F5F7;
+}
+
+/**
+    #kanban-content
+ */
+#kanban-content .card-header {
+    font-weight: 600;
+    background: #E7F5F7;
+}
+
+/**
+    #issue-content
+ */
+#issue-content .card-header {
+    font-weight: 600;
+    background: #E7F5F7;
+}

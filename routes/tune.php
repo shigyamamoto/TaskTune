@@ -2,15 +2,22 @@
 
 use Illuminate\Support\Facades\Route;
 
+// Dashboard(ダッシュボード)
 Route::get('/dashboard', 'DashboardController')->name('dashboard');
-
-// プロジェクト
+// Projects(プロジェクト一覧)
 Route::get('/projects', 'ProjectController@index')->name('project');
+
+// Summary(概要)
 Route::get('/projects/{key}', 'ProjectController@summary')->name('project.summary');
-Route::get('/projects/{key}/activity', 'ProjectController@activity')->name('project.activity');
-Route::get('/projects/{key}/version', 'ProjectController@version')->name('project.version');
-Route::get('/projects/{key}/version/create', 'ProjectController@version_create')->name('project.version.create');
-Route::post('/projects/{key}/version/store', 'ProjectController@version_store')->name('project.version.store');
-Route::get('/projects/{key}/backlog', 'ProjectController@backlog')->name('project.backlog');
-Route::get('/projects/{key}/kanban', 'ProjectController@kanban')->name('project.kanban');
-Route::get('/projects/{key}/issue', 'ProjectController@issue')->name('project.issue');
+// Activity(活動)
+Route::get('/projects/{key}/activity', 'ActivityController@index')->name('project.activity');
+// Version(バージョン)
+Route::get('/projects/{key}/version', 'VersionController@index')->name('project.version');
+Route::get('/projects/{key}/version/create', 'VersionController@create')->name('project.version.create');
+Route::post('/projects/{key}/version/store', 'VersionController@store')->name('project.version.store');
+// Backlog(バックログ)
+Route::get('/projects/{key}/backlog', 'BacklogController@index')->name('project.backlog');
+// Kanban(かんばん)
+Route::get('/projects/{key}/kanban', 'KanbanController@index')->name('project.kanban');
+// Issue(チケット)
+Route::get('/projects/{key}/issue', 'IssueController@index')->name('project.issue');
